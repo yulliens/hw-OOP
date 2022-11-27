@@ -9,15 +9,15 @@
 """
 
 class Profile:
-    def __init__(self, name, last_name, age, pasport):
+    def __init__(self, name, last_name, age, passport):
         self.name = name
         self.last_name = last_name
         self.age = age
-        self.pasport = pasport
+        self.passport = passport
 
 
     def print_info(self):
-        print(self.name, self.last_name, self.age, self.pasport)
+        print(self.name, self.last_name, self.age, self.passport)
 
 
 class Address:
@@ -46,3 +46,25 @@ class Order():
         self.delivery = delivery
         self.price = price
 
+
+class User:
+    def __init__(self):
+        self.adress = []
+        self.bank_account = []
+        self.order = []
+
+    def new_profile(self, name, last_name, age, passport):
+        self.profile = Profile(name, last_name, age, passport)
+
+    def your_adress(self, city, street, zipcode):
+        self.adress.append(Address(city, street, zipcode))
+
+user1 = User()
+user1.new_profile('Настя', 'Остроухова', 18, 567867)
+user1.your_adress('Сочи', 'Макарова', 12354)
+user1.your_adress('Москва',"Ленина",123123)
+
+print(user1.profile.name, user1.profile.last_name)
+print(user1.adress[0].city)
+
+print(user1.adress[1].city)
